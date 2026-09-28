@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="LAKY — Developer especializado en Minecraft, Discord, automatización y desarrollo web.">
+<title>LAKY — Developer Portfolio</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+:root{
+ --bg:#050609;--surface:#0a0d12;--surface2:#0f131a;--surface3:#151a23;
+ --line:rgba(255,255,255,.08);--text:#f7f8fb;--muted:#929baa;
+ --red:#ff304d;--red2:#ff5870;--green:#42e58b;--max:1240px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);background-size:55px 55px;mask-image:linear-gradient(to bottom,black,transparent 85%);z-index:-2}
+body:after{content:"";position:fixed;width:600px;height:600px;left:50%;top:-300px;transform:translateX(-50%);background:radial-gradient(circle,rgba(255,48,77,.15),transparent 65%);pointer-events:none;z-index:-1}
+a{text-decoration:none;color:inherit}
+button{font:inherit}
+.container{width:min(var(--max),92%);margin:auto}
+.nav{position:fixed;top:18px;left:50%;transform:translateX(-50%);width:min(1100px,92%);height:64px;border:1px solid var(--line);background:rgba(8,10,14,.72);backdrop-filter:blur(22px);border-radius:18px;z-index:100}
+.navin{height:100%;display:flex;align-items:center;justify-content:space-between;padding:0 10px 0 20px}
+.logo{font-size:20px;font-weight:900;letter-spacing:-.06em}.logo i{font-style:normal;color:var(--red)}
+.links{display:flex;gap:3px}.links a{font-size:13px;color:#9ca4b3;padding:10px 13px;border-radius:10px;transition:.25s}.links a:hover,.links a.active{color:#fff;background:rgba(255,255,255,.06)}
+.navcta{padding:10px 15px;border-radius:10px;background:#fff;color:#050609;font-size:12px;font-weight:800;margin-left:10px}
+.hero{min-height:100vh;padding:170px 0 90px;display:flex;align-items:center;position:relative}
+.hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:80px;align-items:center}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;border:1px solid var(--line);background:rgba(255,255,255,.025);padding:8px 12px;border-radius:999px;color:#b8c0cc;font-size:11px;font-weight:700;letter-spacing:.04em;margin-bottom:25px;animation:fadeUp .7s ease both}
+.pulse{width:7px;height:7px;background:var(--green);border-radius:50%;box-shadow:0 0 0 5px rgba(66,229,139,.08),0 0 15px rgba(66,229,139,.8)}
+.hero h1{font-size:clamp(56px,7.2vw,102px);line-height:.91;letter-spacing:-.075em;max-width:850px;animation:fadeUp .8s .08s ease both}
+.hero h1 span{background:linear-gradient(90deg,#ff304d,#ff7587);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero-desc{max-width:650px;color:var(--muted);font-size:17px;line-height:1.8;margin-top:27px;animation:fadeUp .8s .16s ease both}
+.actions{display:flex;gap:12px;margin-top:34px;animation:fadeUp .8s .24s ease both}
+.btn{display:inline-flex;align-items:center;gap:9px;padding:14px 18px;border-radius:12px;border:1px solid var(--line);font-size:13px;font-weight:800;transition:.25s}
+.btn:hover{transform:translateY(-3px);border-color:#39404d}
+.btn.red{background:var(--red);border-color:var(--red);box-shadow:0 12px 35px rgba(255,48,77,.18)}
+.btn.red:hover{box-shadow:0 18px 45px rgba(255,48,77,.3)}
+.hero-visual{position:relative;animation:float 6s ease-in-out infinite}
+.orb{position:absolute;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,rgba(255,48,77,.2),transparent 68%);filter:blur(10px);right:-80px;top:-80px}
+.profile{position:relative;border:1px solid var(--line);background:linear-gradient(145deg,rgba(20,24,32,.92),rgba(8,10,14,.92));border-radius:28px;padding:30px;box-shadow:0 40px 100px rgba(0,0,0,.45)}
+.profile-top{display:flex;align-items:center;gap:17px;margin-bottom:30px}
+.avatar{width:68px;height:68px;border-radius:19px;background:linear-gradient(145deg,#ff304d,#7d1726);display:grid;place-items:center;font-size:27px;font-weight:900;box-shadow:0 15px 35px rgba(255,48,77,.2)}
+.profile h3{font-size:22px}.profile small{color:var(--muted);display:block;margin-top:4px}
+.status{margin-left:auto;display:flex;align-items:center;gap:7px;font-size:10px;color:#aab2be}.status b{width:6px;height:6px;background:var(--green);border-radius:50%}
+.profile-row{display:flex;justify-content:space-between;padding:16px 0;border-top:1px solid var(--line);font-size:12px}.profile-row span{color:var(--muted)}
+.marquee{border-block:1px solid var(--line);overflow:hidden;background:#080a0e}.marquee-track{display:flex;width:max-content;animation:marquee 24s linear infinite}.marquee span{padding:19px 28px;color:#777f8e;font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}.marquee span:before{content:"✦";color:var(--red);margin-right:28px}
+section{padding:125px 0}.section-head{display:flex;justify-content:space-between;align-items:end;gap:40px;margin-bottom:45px}.num{font-size:11px;color:var(--red);font-weight:900;letter-spacing:.18em;margin-bottom:12px}.section-head h2{font-size:clamp(35px,4vw,58px);letter-spacing:-.06em}.section-head p{max-width:430px;color:var(--muted);line-height:1.7;font-size:14px}
+.services{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.service{min-height:255px;padding:27px;border:1px solid var(--line);background:linear-gradient(145deg,#0b0e13,#080a0e);border-radius:20px;position:relative;overflow:hidden;transition:.35s}.service:after{content:"";position:absolute;width:160px;height:160px;right:-80px;top:-80px;background:radial-gradient(circle,rgba(255,48,77,.13),transparent 70%);transition:.4s}.service:hover{transform:translateY(-8px);border-color:#343b47}.service:hover:after{transform:scale(1.5)}.service-num{color:#555e6c;font-size:12px;font-weight:800}.service-icon{font-size:24px;margin:30px 0 20px;color:var(--red)}.service h3{font-size:20px;margin-bottom:10px}.service p{color:var(--muted);font-size:13px;line-height:1.7}
+.stack{display:flex;flex-wrap:wrap;gap:9px;margin-top:25px}.pill{border:1px solid var(--line);padding:9px 12px;border-radius:9px;color:#adb5c1;font-size:11px;background:#0b0e13}
+.projects{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}.project{min-height:330px;border:1px solid var(--line);border-radius:22px;padding:30px;background:linear-gradient(145deg,#10141b,#090b10);position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;transition:.35s}.project:hover{transform:translateY(-6px);border-color:#3a424f}.project:before{content:"";position:absolute;inset:auto -30% -65% 25%;height:300px;background:radial-gradient(circle,rgba(255,48,77,.12),transparent 65%)}.project-meta{display:flex;justify-content:space-between;color:#737d8c;font-size:10px;font-weight:800;letter-spacing:.1em}.project h3{font-size:35px;letter-spacing:-.05em;margin:45px 0 10px}.project p{color:var(--muted);font-size:13px;line-height:1.7;max-width:500px}.project-bottom{display:flex;align-items:center;justify-content:space-between;margin-top:30px}.arrow{font-size:22px;color:var(--red)}
+.about{display:grid;grid-template-columns:.85fr 1.15fr;gap:18px}.about-card{border:1px solid var(--line);background:var(--surface);border-radius:22px;padding:34px}.about-card.large{padding:45px}.about-card p{color:var(--muted);line-height:1.85;font-size:14px}.facts{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:28px}.fact{padding:18px;border:1px solid var(--line);border-radius:13px;background:#080b10}.fact b{display:block;font-size:20px}.fact span{color:var(--muted);font-size:11px}
+.process{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.step{border-top:1px solid var(--line);padding-top:22px}.step b{color:var(--red);font-size:12px}.step h3{margin:15px 0 8px;font-size:17px}.step p{color:var(--muted);font-size:12px;line-height:1.7}
+.contact-box{border:1px solid var(--line);border-radius:28px;padding:75px 30px;text-align:center;background:radial-gradient(circle at 50% 0%,rgba(255,48,77,.12),transparent 55%),#0a0d12}.contact-box h2{font-size:clamp(40px,6vw,75px);letter-spacing:-.07em}.contact-box p{color:var(--muted);max-width:580px;margin:18px auto 30px;line-height:1.7;font-size:14px}
+footer{border-top:1px solid var(--line);padding:28px 0;color:#646d7b;font-size:11px}.footer-in{display:flex;justify-content:space-between}
+.reveal{opacity:0;transform:translateY(25px);transition:opacity .7s ease,transform .7s ease}.reveal.show{opacity:1;transform:none}
+@keyframes fadeUp{from{opacity:0;transform:translateY(25px)}to{opacity:1;transform:none}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+@keyframes marquee{to{transform:translateX(-50%)}}
+@media(max-width:900px){.hero-grid,.about{grid-template-columns:1fr}.hero-visual{max-width:560px}.services{grid-template-columns:repeat(2,1fr)}.process{grid-template-columns:repeat(2,1fr)}.links{display:none}}
+@media(max-width:600px){section{padding:80px 0}.hero{padding-top:135px}.services,.projects,.process{grid-template-columns:1fr}.navcta{display:none}.hero h1{font-size:55px}.section-head{display:block}.section-head p{margin-top:15px}.footer-in{display:block}.footer-in span{display:block;margin-top:7px}}
+</style>
+</head>
+<body>
+<nav class="nav">
+<div class="navin">
+<a class="logo" href="#inicio">LAKY<i>.</i></a>
+<div class="links">
+<a href="#inicio" class="active">Inicio</a><a href="#servicios">Servicios</a><a href="#proyectos">Proyectos</a><a href="#sobre">Sobre mí</a>
+</div>
+<a class="navcta" href="#contacto">Contactar</a>
+</div>
+</nav>
+
+<main id="inicio">
+<section class="hero">
+<div class="container hero-grid">
+<div>
+<div class="eyebrow"><span class="pulse"></span> Disponible para nuevos proyectos</div>
+<h1>Digital. Simple.<br><span>Hecho para funcionar.</span></h1>
+<p class="hero-desc">Soy LAKY, developer enfocado en servidores de Minecraft, bots de Discord, automatización y desarrollo web. Creo sistemas personalizados con una experiencia limpia, rápida y profesional.</p>
+<div class="actions"><a class="btn red" href="#contacto">Iniciar proyecto ↗</a><a class="btn" href="#proyectos">Explorar trabajo ↓</a></div>
+</div>
+<div class="hero-visual">
+<div class="orb"></div>
+<div class="profile">
+<div class="profile-top"><div class="avatar">L</div><div><h3>LAKY</h3><small>Developer & Digital Builder</small></div><div class="status"><b></b> ONLINE</div></div>
+<div class="profile-row"><b>Especialidad</b><span>Minecraft · Discord · Web</span></div>
+<div class="profile-row"><b>Enfoque</b><span>Rendimiento & diseño</span></div>
+<div class="profile-row"><b>Contacto</b><span>laky_vc</span></div>
+<div class="profile-row"><b>Disponibilidad</b><span style="color:#42e58b">Disponible</span></div>
+</div>
+</div>
+</div>
+</section>
+
+<div class="marquee"><div class="marquee-track">
+<span>Minecraft</span><span>Discord</span><span>Web Development</span><span>Automation</span><span>Server Management</span><span>Custom Systems</span>
+<span>Minecraft</span><span>Discord</span><span>Web Development</span><span>Automation</span><span>Server Management</span><span>Custom Systems</span>
+</div></div>
+
+<section id="servicios">
+<div class="container">
+<div class="section-head reveal"><div><div class="num">01 / SERVICIOS</div><h2>Qué puedo construir.</h2></div><p>Desde una idea inicial hasta un sistema funcional, organizado y listo para utilizarse.</p></div>
+<div class="services">
+<div class="service reveal"><span class="service-num">01</span><div class="service-icon">◈</div><h3>Bots de Discord</h3><p>Automatización, tickets, moderación, sistemas de bienvenida, comandos, formularios y herramientas personalizadas.</p></div>
+<div class="service reveal"><span class="service-num">02</span><div class="service-icon">◇</div><h3>Servidores Minecraft</h3><p>Configuración y organización de servidores, sistemas de juego, permisos, economía, menús, eventos y optimización.</p></div>
+<div class="service reveal"><span class="service-num">03</span><div class="service-icon">⌁</div><h3>Desarrollo web</h3><p>Páginas modernas, responsivas y personalizadas para comunidades, proyectos, servicios y marcas.</p></div>
+<div class="service reveal"><span class="service-num">04</span><div class="service-icon">◎</div><h3>Automatización</h3><p>Sistemas que conectan procesos y reducen tareas repetitivas dentro de tus proyectos.</p></div>
+<div class="service reveal"><span class="service-num">05</span><div class="service-icon">↗</div><h3>Configuración</h3><p>Configuración de herramientas y sistemas existentes para adaptarlos exactamente a tus necesidades.</p></div>
+<div class="service reveal"><span class="service-num">06</span><div class="service-icon">+</div><h3>Mejoras & soporte</h3><p>Corrección de errores, reorganización, mejoras visuales y soporte para proyectos ya existentes.</p></div>
+</div>
+</div>
+</section>
+
+<section id="proyectos">
+<div class="container">
+<div class="section-head reveal"><div><div class="num">02 / PROYECTOS</div><h2>Trabajo seleccionado.</h2></div><p>Una muestra de proyectos y sistemas en los que he trabajado.</p></div>
+<div class="projects">
+<div class="project reveal"><div><div class="project-meta"><span>MINECRAFT / SERVER</span><span>01</span></div><h3>AthenasMc</h3><p>Proyecto FullPvP con sistemas de rangos, economía, eventos y compatibilidad con Eaglercraft.</p></div><div class="project-bottom"><div class="stack"><span class="pill">Minecraft</span><span class="pill">FullPvP</span><span class="pill">Eaglercraft</span></div><span class="arrow">↗</span></div></div>
+<div class="project reveal"><div><div class="project-meta"><span>MINECRAFT / SERVER</span><span>02</span></div><h3>HyperMC</h3><p>Proyecto de servidor con sistemas de supervivencia, economía, eventos y herramientas para la comunidad.</p></div><div class="project-bottom"><div class="stack"><span class="pill">Server</span><span class="pill">Economy</span></div><span class="arrow">↗</span></div></div>
+<div class="project reveal"><div><div class="project-meta"><span>DISCORD / BOT</span><span>03</span></div><h3>Athenas Official</h3><p>Bot para gestión de comunidad con bienvenida, tickets, reportes, sugerencias, sorteos y sistemas administrativos.</p></div><div class="project-bottom"><div class="stack"><span class="pill">Discord</span><span class="pill">Automation</span></div><span class="arrow">↗</span></div></div>
+<div class="project reveal"><div><div class="project-meta"><span>DISCORD / MANAGEMENT</span><span>04</span></div><h3>Novacraft</h3><p>Sistema de moderación con advertencias, casos, registros, sanciones y herramientas para staff.</p></div><div class="project-bottom"><div class="stack"><span class="pill">Moderation</span><span class="pill">Logs</span></div><span class="arrow">↗</span></div></div>
+</div>
+</div>
+</section>
+
+<section id="sobre">
+<div class="container">
+<div class="section-head reveal"><div><div class="num">03 / SOBRE MÍ</div><h2>Construido alrededor de proyectos reales.</h2></div></div>
+<div class="about">
+<div class="about-card reveal"><div class="avatar">L</div><h3 style="font-size:25px;margin-top:25px">LAKY</h3><p style="margin-top:10px">Developer especializado en crear y mejorar proyectos digitales, especialmente dentro de Minecraft, Discord y web.</p><div class="facts"><div class="fact"><b>3+</b><span>Áreas de trabajo</span></div><div class="fact"><b>∞</b><span>Ideas por construir</span></div></div></div>
+<div class="about-card large reveal"><p>Mi objetivo es que un proyecto no solamente funcione, sino que también se sienta profesional. Por eso combino desarrollo, configuración, automatización y diseño de interfaces.</p><br><p>Trabajo con una metodología directa: entender lo que necesitas, construirlo de forma organizada y dejarlo preparado para que pueda seguir creciendo.</p><div class="stack"><span class="pill">Minecraft</span><span class="pill">Discord</span><span class="pill">JavaScript</span><span class="pill">Python</span><span class="pill">HTML / CSS</span><span class="pill">Automation</span></div></div>
+</div>
+</div>
+</section>
+
+<section>
+<div class="container">
+<div class="section-head reveal"><div><div class="num">04 / PROCESO</div><h2>De idea a proyecto.</h2></div><p>Un proceso simple para mantener el trabajo claro desde el primer mensaje.</p></div>
+<div class="process">
+<div class="step reveal"><b>01</b><h3>Hablamos</h3><p>Me explicas qué necesitas y definimos el objetivo del proyecto.</p></div>
+<div class="step reveal"><b>02</b><h3>Planificamos</h3><p>Organizamos funciones, estructura y prioridades antes de construir.</p></div>
+<div class="step reveal"><b>03</b><h3>Construyo</h3><p>Desarrollo y configuro el sistema con pruebas durante el proceso.</p></div>
+<div class="step reveal"><b>04</b><h3>Entrego</h3><p>Revisamos el resultado y dejamos todo listo para utilizarse.</p></div>
+</div>
+</div>
+</section>
+
+<section id="contacto">
+<div class="container">
+<div class="contact-box reveal">
+<div class="num">05 / CONTACTO</div>
+<h2>Hagamos algo útil.</h2>
+<p>Si tienes un servidor, comunidad, bot, página o idea que quieras convertir en realidad, escríbeme.</p>
+<a class="btn red" href="https://discord.com/users/laky_vc">Contactarme por Discord ↗</a>
+</div>
+</div>
+</section>
+</main>
+
+<footer><div class="container footer-in"><span>© 2026 LAKY</span><span>Developer · Minecraft · Discord · Web</span></div></footer>
+<script>
+const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(x=>obs.observe(x));
+const links=[...document.querySelectorAll('.links a')];
+const sections=[...document.querySelectorAll('main section[id]')];
+window.addEventListener('scroll',()=>{
+ let current='inicio';
+ sections.forEach(s=>{if(scrollY>=s.offsetTop-180)current=s.id});
+ links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+current));
+});
+</script>
+</body>
+</html>
